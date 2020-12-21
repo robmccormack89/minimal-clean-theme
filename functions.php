@@ -1,8 +1,8 @@
 <?php
 /**
- * Rmcc_Starter_Theme functions and definitions
+ * Rmcc_CV_Theme functions and definitions
  *
- * @package Rmcc_Starter_Theme
+ * @package Rmcc_CV_Theme
  */
 
 /**

@@ -2,7 +2,7 @@
 /**
  * Theme functions & bits
  *
- * @package Rmcc_Starter_Theme
+ * @package Rmcc_CV_Theme
  */
 
 // removes sticky posts from main loop, this function fixes issue of duplicate posts on archive. see https://wordpress.stackexchange.com/questions/225015/sticky-post-from-page-2-and-on
@@ -51,7 +51,7 @@ add_action('pre_get_posts', function ($q)
 });
 
 // stuff to say we need timber activated!! see TGM Plugin activation library
-function starter_theme_register_required_plugins()
+function cv_theme_register_required_plugins()
 {
   $plugins = array(
     array(
@@ -74,4 +74,4 @@ function starter_theme_register_required_plugins()
   );
   tgmpa($plugins, $config);
 }
-add_action('tgmpa_register', 'starter_theme_register_required_plugins');
+add_action('tgmpa_register', 'cv_theme_register_required_plugins');

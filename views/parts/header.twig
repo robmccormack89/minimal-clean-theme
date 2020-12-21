@@ -40,7 +40,7 @@
             {% endif %}
           {% endfor %}
         {% else %}
-          <li>{{ __('Add a menu to the Main Menu slot in Appearance > Menus.', 'rmcc-starter-theme') }}</li>
+          <li>{{ __('Add a menu to the Main Menu slot in Appearance > Menus.', 'rmcc-cv-theme') }}</li>
         {% endif %}
       </ul>
     </div>
@@ -49,10 +49,10 @@
       <div class="uk-visible@m">
         <a class="uk-navbar-toggle" href="#modal-navbar-search" uk-search-icon uk-toggle></a>
       </div>
-      <button class="uk-button uk-button-default uk-visible@m" type="button" uk-toggle="target: body; cls: dark-style uk-light">{{ __('Change Style', 'rmcc-starter-theme') }}</button>
+      <button class="uk-button uk-button-default uk-visible@m" type="button" uk-toggle="target: body; cls: dark-style uk-light">{{ __('Change Style', 'rmcc-cv-theme') }}</button>
       <ul class="uk-navbar-nav uk-hidden@m">
         <li>
-          <a class="uk-navbar-toggle pull-right-15" uk-navbar-toggle-icon uk-toggle href="#offcanvas-mobile-nav"><span class="uk-hidden">{{ __('Menu', 'rmcc-starter-theme') }}</span></a>
+          <a class="uk-navbar-toggle pull-right-15" uk-navbar-toggle-icon uk-toggle href="#offcanvas-mobile-nav"><span class="uk-hidden">{{ __('Menu', 'rmcc-cv-theme') }}</span></a>
         </li>
       </ul>
     </div>
@@ -63,7 +63,7 @@
     <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport>
       <button class="uk-modal-close-full" type="button" uk-close></button>
       <form class="uk-search uk-search-large" role="search" method="get" action="{{site.url}}">
-        <input id="header-search" class="uk-search-input uk-text-center" type="search" placeholder="{{ __('Start typing...', 'rmcc-starter-theme') }}" name="s" autofocus>
+        <input id="header-search" class="uk-search-input uk-text-center" type="search" placeholder="{{ __('Start typing...', 'rmcc-cv-theme') }}" name="s" autofocus>
         <input type="hidden" name="post_type" value="post">
       </form>
     </div>
@@ -71,9 +71,9 @@
 
   <div id="offcanvas-mobile-nav" uk-offcanvas="flip: true; overlay: true">
     <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
-      <button class="uk-offcanvas-close uk-close uk-icon" uk-close type="button"><span class="uk-hidden">{{ __('Close', 'rmcc-starter-theme') }}</span></button>
+      <button class="uk-offcanvas-close uk-close uk-icon" uk-close type="button"><span class="uk-hidden">{{ __('Close', 'rmcc-cv-theme') }}</span></button>
       <ul class="uk-nav uk-nav-default">
-        <li class="uk-nav-header uk-text-bold uk-text-uppercase uk-margin-small-bottom">{{ __('Menu', 'rmcc-starter-theme') }}</li>
+        <li class="uk-nav-header uk-text-bold uk-text-uppercase uk-margin-small-bottom">{{ __('Menu', 'rmcc-cv-theme') }}</li>
         {% if has_menu_mobile %}
           {% for item in menu_mobile.get_items %}
             {% if item.get_children %}
@@ -94,16 +94,16 @@
             {% endif %}
           {% endfor %}
         {% else %}
-          <li>{{ __('Add a menu to the Mobile Menu slot in Appearance > Menus.', 'rmcc-starter-theme') }}</li>
+          <li>{{ __('Add a menu to the Mobile Menu slot in Appearance > Menus.', 'rmcc-cv-theme') }}</li>
         {% endif %}
         <li class="uk-nav-divider uk-margin-top"></li>
         <div class="uk-margin-top uk-position-z-index uk-position-relative">
           <form class="uk-search uk-search-default uk-width-1-1" role="search" method="get" action="{{site.url}}">
             <span class="uk-search-icon-flip" uk-search-icon></span>
-            <input class="uk-search-input" type="search" placeholder="{{ __('Search...', 'rmcc-starter-theme') }}" id="SearchMobile" name="s" autocomplete="off">
+            <input class="uk-search-input" type="search" placeholder="{{ __('Search...', 'rmcc-cv-theme') }}" id="SearchMobile" name="s" autocomplete="off">
           </form>
         </div>
-        <button class="uk-button uk-button-default uk-margin-top uk-width-1-1 uk-margin-small-bottom" type="button" uk-toggle="target: body; cls: dark-style uk-light">{{ __('Change Style', 'rmcc-starter-theme') }}</button>
+        <button class="uk-button uk-button-default uk-margin-top uk-width-1-1 uk-margin-small-bottom" type="button" uk-toggle="target: body; cls: dark-style uk-light">{{ __('Change Style', 'rmcc-cv-theme') }}</button>
       </ul>
     </div>
   </div>

@@ -9,23 +9,23 @@
               <div class="uk-margin-small">
                 <div class="uk-grid-small" uk-grid>
                   <div class="uk-width-1-2@s">
-                    <input class="uk-input" required name="author" type="text" placeholder="{{ __('Your name', 'rmcc-starter-theme') }}">
+                    <input class="uk-input" required name="author" type="text" placeholder="{{ __('Your name', 'rmcc-cv-theme') }}">
                   </div>
                   <div class="uk-width-1-2@s">
-                    <input class="uk-input" required name="email" type="email" id="email" placeholder="{{ __('Your email', 'rmcc-starter-theme') }}">
+                    <input class="uk-input" required name="email" type="email" id="email" placeholder="{{ __('Your email', 'rmcc-cv-theme') }}">
                   </div>
                 </div>
               </div>
               <div class="uk-margin-small">
-                <input class="uk-input" name="url" type="url" placeholder="{{ __('Your website address (including http:// or https://)', 'rmcc-starter-theme') }}">
+                <input class="uk-input" name="url" type="url" placeholder="{{ __('Your website address (including http:// or https://)', 'rmcc-cv-theme') }}">
               </div>
           {% endif %}
-          <textarea id="comment-form-box" class="uk-textarea" name="comment" placeholder="{{ __('Leave a message...', 'rmcc-starter-theme') }}" cols="60" rows="8"></textarea>
+          <textarea id="comment-form-box" class="uk-textarea" name="comment" placeholder="{{ __('Leave a message...', 'rmcc-cv-theme') }}" cols="60" rows="8"></textarea>
           <input name="comment_post_ID" value="{{ post.id }}" type="hidden">
           <input name="comment_parent" value="{{ comment.ID|default('0') }}" type="hidden">
           <div class="uk-margin-top">
-            <button type="submit" name="Submit" class="uk-button uk-button-small uk-button-secondary uk-text-capitalize">{{ __('Send', 'rmcc-starter-theme') }}</button>
-            <button type="reset" class="uk-button uk-button-small uk-button-default uk-text-capitalize">{{ __('Clear', 'rmcc-starter-theme') }}</button>
+            <button type="submit" name="Submit" class="uk-button uk-button-small uk-button-secondary uk-text-capitalize">{{ __('Send', 'rmcc-cv-theme') }}</button>
+            <button type="reset" class="uk-button uk-button-small uk-button-default uk-text-capitalize">{{ __('Clear', 'rmcc-cv-theme') }}</button>
           </div>
         </fieldset>
     </form>

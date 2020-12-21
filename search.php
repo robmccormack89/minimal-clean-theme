@@ -2,7 +2,7 @@
 /**
  * The search
  *
- * @package Rmcc_Starter_Theme
+ * @package Rmcc_CV_Theme
  */
 
 $templates = array( 'search.twig', 'archive.twig', 'index.twig' );

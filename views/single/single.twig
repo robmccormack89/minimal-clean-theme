@@ -14,8 +14,8 @@
           
           {% if post.post_type == "post" %}
             <p class="uk-article-meta">
-              {{ __('Written on', 'rmcc-starter-theme') }} {{post.date | date}}.
-              {{ __('Posted in', 'rmcc-starter-theme') }} 
+              {{ __('Written on', 'rmcc-cv-theme') }} {{post.date | date}}.
+              {{ __('Posted in', 'rmcc-cv-theme') }} 
               {% for category in post.categories %}
                 {% if not loop.last %}
                   <a href="{{ category.link }}">{{ category }}</a>,
@@ -53,7 +53,7 @@
 
               <div id="CommentForm" class="uk-margin-top">
                 <hr>
-                <h4 class="uk-margin-remove-top">{{ __('Leave a new comment', 'rmcc-starter-theme') }}</h4>
+                <h4 class="uk-margin-remove-top">{{ __('Leave a new comment', 'rmcc-cv-theme') }}</h4>
                 {% include "comment-form.twig" %}
               </div>
 

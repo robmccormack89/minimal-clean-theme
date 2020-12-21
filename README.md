@@ -1,4 +1,4 @@
-# RMcC Starter Theme
+# RMcC CV Theme
 
 A Wordpress starter theme built with timber, uikit, node, gulp, webpack, sass, infinite-scroll & more.
 
@@ -37,7 +37,7 @@ A Wordpress starter theme built with timber, uikit, node, gulp, webpack, sass, i
 
 3. Use the following command to clone the starter project:
 
-        git clone https://github.com/robmccormack89/rmcc-starter-theme
+        git clone https://github.com/robmccormack89/rmcc-cv-theme
 
 4. Rename folder of theme to whatever you like.
 
