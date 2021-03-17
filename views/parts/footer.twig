@@ -1,11 +1,87 @@
-<footer class="the-footer uk-section uk-section-small uk-section-muted">
+<style>
+  .footer-social-links a {
+    display: inline-block;
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+</style>
+
+<footer class="uk-section uk-section-small">
   <div class="uk-container">
-    {% if sidebar_footer %}
-    	{{sidebar_footer}}
-    {% else %}
-    	<p class="uk-text-small uk-text-center">
-        {{ __('Add some widgets to the Footer Widget Area in Appearance > Widgets.', 'rmcc-cv-theme') }}
-      </p>
-    {% endif %}
+    <div class="theme-divider theme-divider-btm"></div>
+    <div class="uk-section uk-section-small uk-padding-remove-bottom">
+      
+      <div class="uk-child-width-1-2@m uk-flex uk-flex-middle" uk-grid>
+        <div class="uk-flex-left">
+          <div class="footer-text uk-text-small">
+            Thanks for the visit <i class="far fa-kiss-wink-heart"></i> <strong>Nimbo</strong> WordPress Theme © 2021
+          </div>
+        </div>
+        <div class="uk-flex-right@m uk-text-right@m">
+          <div class="footer-social-links">
+            <!-- twitter -->
+            <a href="#" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+            
+            <!-- facebook -->
+            <a href="#" target="_blank" rel="noopener">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            
+            <!-- pinterest -->
+            <a href="#your-pinterest-url">
+              <i class="fab fa-pinterest-p"></i>
+            </a>
+            
+            <!-- instagram -->
+            <a href="#your-instagram-url">
+              <i class="fab fa-instagram"></i>
+            </a>
+            
+            <!-- vk -->
+            <a href="#your-vk-url">
+              <i class="fab fa-vk"></i>
+            </a>
+            
+            <!-- telegram -->
+            <a href="#your-telegram-url">
+              <i class="fab fa-telegram-plane"></i>
+            </a>
+            
+            <!-- deviantart -->
+            <a href="#your-deviantart-url">
+              <i class="fab fa-deviantart"></i>
+            </a>
+            
+            <!-- dribbble -->
+            <a href="#your-dribbble-url">
+              <i class="fab fa-dribbble"></i>
+            </a>
+            
+            <!-- github -->
+            <a href="#your-github-url">
+              <i class="fab fa-github"></i>
+            </a>
+            
+            <!-- linkedin -->
+            <a href="#your-linkedin-url">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            
+            <!-- vimeo -->
+            <a href="#your-vimeo-url">
+              <i class="fab fa-vimeo-v"></i>
+            </a>
+            
+            <!-- youtube -->
+            <a href="#your-youtube-url">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
   </div>
 </footer>

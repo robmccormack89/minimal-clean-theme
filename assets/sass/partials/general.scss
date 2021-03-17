@@ -1,10 +1,44 @@
-/* overflow fix */
+// overflow fix
 body,
 html {
   max-width: 100%;
   overflow-x: hidden;
 }
-/* pull right 15px */
+// fonts
+html {
+  font-family: $body_font;
+  font-size: 15px;
+  font-weight: 400;
+}
+.uk-logo,
+.uk-h1,
+.uk-h2,
+.uk-h3,
+.uk-h4,
+.uk-h5,
+.uk-h6,
+.uk-heading-2xlarge,
+.uk-heading-large,
+.uk-heading-medium,
+.uk-heading-small,
+.uk-heading-xlarge,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading_font;
+  font-weight: 700;
+}
+.sub-font {
+  font-family: $sub_heading_font;
+  font-weight: 700;
+}
+// utility
 .pull-right-15 {
   margin-right: -15px;
+}
+.pull-p > p {
+  margin: 0px;
 }

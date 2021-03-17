@@ -2,70 +2,66 @@
 
 {% block content %}
 
-  <div class="uk-section" data-template="single.twig">
-    <div class="uk-container">
-      <div class="uk-grid-large" uk-grid>
+  <div class="uk-grid-large" uk-grid>
+
+    <article id="post-{{post.id}}" class="post-type-{{ post.post_type }} uk-article uk-width-2-3@m {{post.class}}">
       
-        <article id="post-{{post.id}}" class="post-type-{{ post.post_type }} uk-article uk-width-2-3@m {{post.class}}">
-          
-          <h1 class="uk-article-title">
-            {{ post.title }}
-          </h1>
-          
-          {% if post.post_type == "post" %}
-            <p class="uk-article-meta">
-              {{ __('Written on', 'rmcc-cv-theme') }} {{post.date | date}}.
-              {{ __('Posted in', 'rmcc-cv-theme') }} 
-              {% for category in post.categories %}
-                {% if not loop.last %}
-                  <a href="{{ category.link }}">{{ category }}</a>,
-                {% endif %}
-                {% if loop.last %}
-                  <a href="{{ category.link }}">{{ category }}</a>
-                {% endif %}
-              {% endfor %}
-            </p>
+      <h1 class="uk-article-title">
+        {{ post.title }}
+      </h1>
+      
+      {% if post.post_type == "post" %}
+        <p class="uk-article-meta">
+          {{ __('Written on', 'rmcc-cv-theme') }} {{post.date | date}}.
+          {{ __('Posted in', 'rmcc-cv-theme') }} 
+          {% for category in post.categories %}
+            {% if not loop.last %}
+              <a href="{{ category.link }}">{{ category }}</a>,
+            {% endif %}
+            {% if loop.last %}
+              <a href="{{ category.link }}">{{ category }}</a>
+            {% endif %}
+          {% endfor %}
+        </p>
+      {% endif %}
+      
+      {% if post.thumbnail %}
+        <figure>
+          <img data-src="{{ post.thumbnail.src|resize(800, 400) }}" width="800" height="400" alt="{{ post.thumbnail.alt }}" uk-img>
+          {% if post.thumbnail.caption %}
+            <figcaption class="uk-padding-small uk-text-muted uk-text-center tease-image-caption">{{ post.thumbnail.caption }}</figcaption>
           {% endif %}
-          
-          {% if post.thumbnail %}
-            <figure>
-              <img data-src="{{ post.thumbnail.src|resize(800, 400) }}" width="800" height="400" alt="{{ post.thumbnail.alt }}" uk-img>
-              {% if post.thumbnail.caption %}
-                <figcaption class="uk-padding-small uk-text-muted uk-text-center tease-image-caption">{{ post.thumbnail.caption }}</figcaption>
-              {% endif %}
-            </figure>
-          {% endif %}
+        </figure>
+      {% endif %}
 
-          <div class="uk-margin-medium-bottom">
-            {{ post.content }}
-          </div>
-          
-          {% if post.post_type == 'post' and function('comments_open') %}
-            <section id="CommentBox">
-              
-              {% if post.comments|length > 0 %}
-                <ul class="uk-comment-list">
-                  {% for comment in post.comments %}
-                    {% include "comments.twig" %}
-                  {% endfor %}
-                </ul>
-              {% endif %}
-
-              <div id="CommentForm" class="uk-margin-top">
-                <hr>
-                <h4 class="uk-margin-remove-top">{{ __('Leave a new comment', 'rmcc-cv-theme') }}</h4>
-                {% include "comment-form.twig" %}
-              </div>
-
-            </section>
-          {% endif %}
-
-        </article>
-
-        {% include 'sidebar.twig' %}
-
+      <div class="uk-margin-medium-bottom">
+        {{ post.content }}
       </div>
-    </div>
+      
+      {% if post.post_type == 'post' and function('comments_open') %}
+        <section id="CommentBox">
+          
+          {% if post.comments|length > 0 %}
+            <ul class="uk-comment-list">
+              {% for comment in post.comments %}
+                {% include "comments.twig" %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          <div id="CommentForm" class="uk-margin-top">
+            <hr>
+            <h4 class="uk-margin-remove-top">{{ __('Leave a new comment', 'rmcc-cv-theme') }}</h4>
+            {% include "comment-form.twig" %}
+          </div>
+
+        </section>
+      {% endif %}
+
+    </article>
+
+    {% include 'sidebar.twig' %}
+
   </div>
 
 {% endblock %}

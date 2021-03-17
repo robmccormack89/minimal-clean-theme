@@ -12,24 +12,39 @@
     
   </head>
   
-  <body class="{{ body_class }}" data-template="base.twig">
+  <body id="Thebody" class="{{ body_class }} uk-background-muted" data-template="base.twig">
     
-    <div id="SiteWrapper" class="site-wrapper">
-      {% block header %}
-        {% include 'header.twig' %}
-      {% endblock %}
-
-      <main role="main" id="MainContent">
-        {% block content %}
-          <p>{{ __('Sorry, nothing to display here..', 'rmcc-cv-theme') }}</p>
+    {% block wrap %}
+      <div id="SiteWrapper" class="site-wrapper">
+        
+        {% block header %}
+          {% include 'header.twig' %}
         {% endblock %}
-      </main>
 
-      {% block footer %}
-        {% include 'footer.twig' %}
-      {% endblock %}
+        <main role="main" id="MainContent">
+          {% block content_wrap %}
+            <div class="block-content_wrap">
+              <section class="uk-section uk-section-small">
+                <div class="uk-container">
+                  <div class="uk-position-relative">
+                    <div class="content-container">
+                      {% block content %}
+                        <p>{{ __('Sorry, nothing to display here..', 'rmcc-cv-theme') }}</p>
+                      {% endblock %}
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          {% endblock %}
+        </main>
 
-    </div>
+        {% block footer %}
+          {% include 'footer.twig' %}
+        {% endblock %}
+
+      </div>
+    {% endblock %}
     
     {{ function('wp_footer') }}
     

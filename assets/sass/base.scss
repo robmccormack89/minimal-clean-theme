@@ -1,4 +1,11 @@
 // 1. Customizing variables from uikit. These will overwrite the UIKIT imports below. 
+$global-color: #4c4f53;
+$global-emphasis-color: #4c4f53;
+$base-heading-color: #2f3235;
+$global-link-color: #4c4f53;
+$logo-color: #2f3235;
+$global-muted-color: #4c4f53;
+
 $text-bold-font-weight: 700; 
 $base-heading-font-weight: 700;
 $base-strong-font-weight: 700;
@@ -10,7 +17,5 @@ $base-strong-font-weight: 700;
 // 4. Import main UIkit (theme)
 @import "node_modules/uikit/src/scss/uikit-theme.scss";
 
-// import your custom sass styles
+// 5. Import your custom sass styles
 @import "style.scss";
-
-

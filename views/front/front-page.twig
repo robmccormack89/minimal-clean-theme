@@ -1,0 +1,117 @@
+{% extends "base.twig" %}
+
+{% block spec_styles %}
+
+  <link rel="stylesheet" href="{{ theme.link }}/assets/css/all.min.css" />
+
+  {% include 'front-css.twig' %}
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=PT+Sans&family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+  <section id="FrontHero" class="uk-section uk-section-small uk-padding-remove-top">
+    <div class="uk-inline">
+      <img class="hero-image" data-src="https://via.placeholder.com/1000x560.png" data-width height="400" alt="" uk-img>
+      <div class="uk-position-cover">
+        <div class="uk-padding-large uk-position-bottom-left">
+          <div class="uk-background-default text-padding uk-margin-bottom">
+            <h1 class="uk-margin-remove">Welcome to NIMBO!</h1>
+          </div>
+          <div class="uk-background-default text-padding">
+            <p class="uk-margin-remove uk-text-lead">
+              This is a blog theme with minimal and clean design, easy to<br> use, and with interesting features. <a href="#" class="theme-text-underline">Documentation</a> <i class="fas fa-external-link-alt"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="FrontPostsMasonry" class="uk-section uk-section-small uk-padding-remove-top">
+    {% if posts is not empty %}
+      <div class="archive-posts uk-child-width-1-3@m" uk-grid="masonry:true;">
+        {% for post in posts %}
+          <div>
+            <div class="front-post">
+              <div class="post-img">
+                <img src="https://getuikit.com/docs/images/light.jpg" alt="">
+              </div>
+              <div class="post-content uk-background-default uk-padding-small">
+                <span class="uk-text-meta sub-font">OCTOBER 9, 2018</span>
+                <h3 class="uk-margin-remove-bottom uk-margin-small-top">{{post.title}}</h3>
+                <p class="uk-margin-remove-bottom">{{ post.preview.length(20).read_more('Read more') }}</p>
+              </div>
+          </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      No Posts
+    {% endif %}
+  </section>
+
+  <div class="theme-divider"></div>
+
+  <section class="uk-section uk-padding-remove-bottom">
+    <h2>Two</h2>
+  </section>
+
+{% endblock %}
+
+{% block spec_scripts %}
+  <script>
+    
+    function quickLoad(event) {
+      
+      UIkit.scroll('#Top');
+      
+      // get the data-link value of the clicked link
+      var the_link_href = event.target.getAttribute("data-link");
+          
+      // add a loader onclick; removed when node is replaced in successful fetch call
+      document.querySelector('.content-container').classList.add('the-loader');
+        
+      // fetch request with the clicked llnk
+      fetch(the_link_href).then(function (response) {
+        // The API call was successful! retunr the repsonse text (html string)
+        return response.text();
+      }).then(function (html) {
+        // Parse HTML string
+        var parser = new DOMParser();
+        // & convert the into a document object
+        var doc_obj = parser.parseFromString(html, 'text/html');
+        // Get the content within the object
+        var new_content = doc_obj.querySelector('.block-content_wrap');
+        // container element to insert into
+        var main_container = document.getElementById("MainContent");
+        // old content to be replaced
+        var old_content = document.querySelector('.block-content_wrap');
+        // remove inside of main content & replace it
+        main_container.replaceChild(new_content, old_content);
+        // add new url to the browser address bar; this is optional with the one page setup
+        // window.history.pushState({}, '', the_link_href);
+      }).catch(function (error) {
+        // There was an error
+        console.warn('Something went wrong.', error);
+      });
+    }
+    
+  </script>
+
+  <script>
+    document.getElementById('LightDarkSwitch').addEventListener('click', darkLightSwitch);
+    function darkLightSwitch() {
+      if (document.getElementById('LightDarkSwitch').checked) {
+        document.body.classList.add('dark-style');
+        document.body.classList.add('uk-light');
+      } else {
+        document.body.classList.remove('dark-style');
+        document.body.classList.remove('uk-light');
+      };  
+    }
+  </script>
+{% endblock %}

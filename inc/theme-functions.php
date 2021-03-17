@@ -4,6 +4,26 @@
  *
  * @package Rmcc_CV_Theme
  */
+ 
+// add_filter( 'rest_authentication_errors', function( $result ) {
+//  if ( ! empty( $result ) ) {
+//    return $result;
+//  }
+//  if ( ! is_user_logged_in() ) {
+//    return new WP_Error( 'rest_not_logged_in', 'You are not currently logged in.', array( 'status' => 401 ) );
+//  }
+//  if ( ! current_user_can( 'administrator' ) ) {
+//    return new WP_Error( 'rest_not_admin', 'You are not an administrator.', array( 'status' => 401 ) );
+//  }
+//  return $result;
+// });
+// 
+// function crunchify_stop_loading_wp_embed_and_jquery() {
+// 	if (!is_admin()) {
+// 		wp_deregister_script('wp-embed');
+// 	}
+// }
+// add_action('init', 'crunchify_stop_loading_wp_embed_and_jquery');
 
 // removes sticky posts from main loop, this function fixes issue of duplicate posts on archive. see https://wordpress.stackexchange.com/questions/225015/sticky-post-from-page-2-and-on
 add_action('pre_get_posts', function ($q)

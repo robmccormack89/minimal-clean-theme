@@ -1,0 +1,143 @@
+{% extends "base.twig" %}
+
+{% block spec_styles %}
+
+  <!-- load in swiper-js css -->
+  <link rel="stylesheet" href="{{theme.link}}/assets/css/swiper-bundle.min.css" />
+
+  <link rel="stylesheet" href="{{theme.link}}/assets/css/front.css" />
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="uk-grid-large" uk-grid>
+          
+    <div class="uk-width-2-3@m">
+      
+      <div id="profile" class="uk-margin-medium-bottom">
+        <h3 class="uk-h3"><i class="far fa-address-card"></i> {{ __('Profile', 'rmcc-cv-theme') }}</h2>
+          
+          {% if sidebar_profile %}
+        		{{ sidebar_profile }}
+        	{% else %}
+        		{{ __('Add a widget to the Profile Section Widget Area in Appearance > Widgets.', 'rmcc-cv-theme') }}
+        	{% endif %}
+
+      </div>
+      
+      <div id="experience" class="uk-margin-medium-bottom">
+        <h3 class="uk-h3"><i class="fas fa-wrench"></i> {{ __('Experience', 'rmcc-cv-theme') }}</h2>
+        {% if experiences is not empty %}
+          <ul class="uk-list uk-list-divider">
+            {% for item in experiences %}
+              <li>
+                <div class="uk-grid-small" uk-grid>
+                  <div class="uk-width-1-1 uk-width-1-3@m">
+                    <h3 class="uk-h5 uk-margin-small-bottom">{{item.experience_role}}</h3>
+                    <div class="uk-text-small uk-text-light pull-p">{{item.experience_dates}}</div>
+                  </div>
+                  <div class="uk-width1-1 uk-width-2-3@m">
+                    <h3 class="uk-h5 uk-margin-small-bottom">{{item.title}}</h3>
+                    <div class="uk-text-small uk-text-light pull-p">{{item.content}}</div>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          {{ __('No work experience yet...', 'rmcc-cv-theme') }}
+        {% endif %}
+      </div>
+      
+      <div id="education" class="uk-margin-medium-bottom">
+        <h3 class="uk-h3"><i class="fas fa-university"></i> {{ __('Education', 'rmcc-cv-theme') }}</h2>
+        {% if educations is not empty %}
+        <ul class="uk-list uk-list-divider">
+          {% for item in educations %}
+            <li>
+              <div class="uk-grid-small" uk-grid>
+                <div class="uk-width-1-1 uk-width-1-3@m">
+                  <h3 class="uk-h5 uk-margin-small-bottom">{{item.education_role}}</h3>
+                  <div class="uk-text-small uk-text-light pull-p">{{item.education_dates}}</div>
+                </div>
+                <div class="uk-width1-1 uk-width-2-3@m">
+                  <h3 class="uk-h5 uk-margin-small-bottom">{{item.title}}</h3>
+                  <div class="uk-text-small uk-text-light pull-p">{{item.content}}</div>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+          {{ __('No education yet...', 'rmcc-cv-theme') }}
+        {% endif %}
+      </div>
+      
+      <div id="qualifications" class="uk-margin-medium-bottom">
+        <h3 class="uk-h3"><i class="fas fa-graduation-cap"></i>  {{ __('Qualifications', 'rmcc-cv-theme') }}</h2>
+        {% if qualifications is not empty %}
+          <ul class="uk-list">
+            {% for item in qualifications %}
+              <li>
+                <h3 class="uk-h5 uk-margin-small-bottom">{{item.title}}</h3>
+                <div class="uk-text-small uk-text-light">{{item.content}}</div>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          {{ __('No qualifications yet...', 'rmcc-cv-theme') }}
+        {% endif %}
+      </div>
+      
+      <a href="https://github.com/robmccormack89/rmcc-starter-theme">
+        <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=robmccormack89&line_height=24&hide_border=true&repo=rmcc-starter-theme&title_color=ffffff&text_color=8b949e&icon_color=58a6ff&bg_color=0d1117" />
+      </a>
+      
+    </div>
+
+    <div class="uk-width-1-3@m">
+      
+      <div id="langauges" class="uk-margin-medium-bottom">
+        <h3 class="uk-h3"><i class="fas fa-code"></i>  {{ __('Technologies', 'rmcc-cv-theme') }}</h2>
+          {% if languages is not empty %}
+            {% for item in languages %}
+              <img src="https://img.shields.io/badge/-{{item.title}}-Language?style=flat&logo={{item.language_name}}&logoColor={{item.language_text_color|trim(character_mask='#')}}&color={{item.language_color|trim(character_mask='#')}}">
+            {% endfor %}
+          {% else %}
+            {{ __('No languages yet...', 'rmcc-cv-theme') }}
+          {% endif %}
+      </div>
+      
+      <div id="resources" class="uk-margin-medium-bottom">
+        <h3 class="uk-h3"><i class="fas fa-layer-group"></i> {{ __('Resources', 'rmcc-cv-theme') }}</h2>
+        {% if resources is not empty %}
+          <ul class="uk-list">
+            {% for item in resources %}
+              <li>
+                <div class="uk-card uk-card-small uk-card-body uk-border-rounded" style="background-color: {{item.resource_background_color}}">
+                  <span class="uk-align-right">{{item.resource_image_html}}</span>
+                  <h3 class="uk-h5 uk-margin-remove-top uk-margin-small-bottom">{{item.title}}</h3>
+                  <div class="uk-text-small uk-text-light pull-p uk-margin-small-bottom">{{item.content}}</div>
+                  <a class="uk-text-small uk-text-light" href="#Top" data-link="{{item.link}}" onclick="quickLoad(event);" uk-scroll>{{ __('Learn more', 'rmcc-cv-theme') }}</a>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          {{ __('No resources yet...', 'rmcc-cv-theme') }}
+        {% endif %}
+      </div>
+        
+    </div>
+
+  </div>
+
+{% endblock %}
+
+{% block spec_scripts %}
+
+  <!-- load in swiper-js js -->
+  <script src="{{theme.link}}/assets/js/swiper-bundle.min.js"></script>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+<!-- Swiper -->
+<div id="Top" class="swiper-container">
+  <div class="swiper-wrapper">
+    {% if languages is not empty %}
+      {% for item in languages %}
+        <div class="swiper-slide" style="background-color: {{item.language_color}}">
+          <img src="https://img.shields.io/badge/-{{item.title}}-Language?style=for-the-badge&logo={{item.language_name}}&logoColor={{item.language_text_color|trim(character_mask='#')}}&color={{item.language_color|trim(character_mask='#')}}">
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
+<header id="SiteHeader" class="the-header uk-background-default">
+  <div id="TopBar" class="uk-padding uk-padding-small uk-padding-remove-horizontal uk-text-center theme-border-bottom">
+    <a href="#" data-link="http://uikitwp.robmccormack.me/contact/" onclick="quickLoad(event);">Contact</a>
+  </div>
+  <div class="uk-padding uk-padding-remove-horizontal">
+    <div class="uk-container uk-text-center">
+      <h2 class="uk-margin-small-bottom"><a class="uk-link-reset" href="#" data-link="{{site.link}}" onclick="quickLoad(event);">Robert McCormack</a></h2>
+      <p class="uk-margin-remove">{{ site.description }}</a>
+    </div>
+  </div>
+</header>
+<div class="uk-container">
+  <div class="theme-border-top theme-border-bottom uk-margin-bottom uk-padding-small uk-padding-remove-horizontal">
+    Hello
+  </div>
+</div>

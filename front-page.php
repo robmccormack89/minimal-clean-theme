@@ -6,46 +6,32 @@
  */
 
 $context = Timber::context();
-
 $templates = array('front-page.twig');
 
-$sticky = get_option('sticky_posts');
+// $ex_posts_args = array(
+// 	'post_type' => 'experience',
+// 	'posts_per_page'=>  -1,
+// );
+// $context['experiences'] = new Timber\PostQuery( $ex_posts_args );
+// 
+// $edu_posts_args = array(
+// 	'post_type' => 'education',
+// 	'posts_per_page'=>  -1,
+// );
+// $context['educations'] = new Timber\PostQuery( $edu_posts_args );
+// 
+// $tech_posts_args = array(
+// 	'post_type' => 'resource',
+// 	'posts_per_page'=>  -1,
+// );
+// $context['resources'] = new Timber\PostQuery( $tech_posts_args );
+// 
+// $qual_posts_args = array(
+// 	'post_type' => 'qualification',
+// 	'posts_per_page'=>  -1,
+// );
+// $context['qualifications'] = new Timber\PostQuery( $qual_posts_args );
 
-if ( get_query_var('paged') ) { $paged = get_query_var( 'paged' ); }
-elseif ( get_query_var('page') ) { $paged = get_query_var( 'page' ); }
-else { $paged = 1; }
-
-if (!empty($sticky)) {   
-	$home_hero_args = array(
-		'post_type' => 'post',
-		'post_status' => 'publish',
-		'posts_per_page'=>  1,
-		// 'p'   => $sticky[0], // if posts_per_page is more than one, turn this on
-		'post__in'   => $sticky,
-		'ignore_sticky_posts' => 1,
-		'orderby' => 'date',
-		'order'   => 'DESC',
-	);
-	$context['home_hero'] = new Timber\PostQuery( $home_hero_args );
-	$home_featured_args = array(
-		'post_type' => 'post',
-		'post_status' => 'publish',
-		'posts_per_page'=>  3,
-		'post__in'   => $sticky,
-		'offset' => 1,
-		'ignore_sticky_posts' => 1,
-		'orderby' => 'date',
-		'order'   => 'DESC',
-	);
-	$context['home_featured'] = new Timber\PostQuery( $home_featured_args );
-}
-$home_posts_args = array(
- 'post_type' => 'post',
- 'posts_per_page'=>  3,
- 'ignore_sticky_posts' => 1,
- 'post__not_in' => $sticky,
- 'paged' => $paged,
-);
-$context['posts'] = new Timber\PostQuery( $home_posts_args );
+$context['posts'] = new Timber\PostQuery();
 
 Timber::render( $templates, $context );
